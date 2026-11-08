@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TASKFINDER - Hanapin at tuklasin ang mga performance task sa Pag-aaral ng Kasaysayan sa Lipunang Pilipino.">
+
+    <title>RVCR TASKFINDER | Performance Task Library</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- WELCOME SCREEN -->
+<div id="welcomeScreen" class="welcome-screen">
+
+    <div class="welcome-box">
+
+        <div class="logo-icon">
+            <i data-lucide="graduation-cap"></i>
+        </div>
+
+        <h1>RVCR TASKFINDER</h1>
+
+        <p>
+            Maligayang pagdating! Mag-login o gumawa
+            ng account upang makapasok sa aming digital library.
+        </p>
+
+        <button id="welcomeLoginBtn" class="login-btn">
+            Mag-login
+        </button>
+
+        <button id="welcomeRegisterBtn" class="register-btn">
+            Gumawa ng Account
+        </button>
+
+    </div>
+
+</div>
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+                <span>RVCR<span class="logo-highlight">TASKFINDER</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#tasks">Mga Gawain</a>
+                <a href="#about">Tungkol</a>
+            </nav>
+
+           <div class="nav-actions">
+    <button class="login-btn" id="loginBtn">Mag-login</button>
+    <button class="register-btn" id="registerBtn">Mag-register</button>
+    <button class="login-btn" id="logoutBtn" style="display:none;">
+        Mag-logout
+    </button>
+            </div>
+
+            <button class="menu-btn" id="menuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    IYONG DIGITAL ACADEMIC LIBRARY
+                </div>
+
+                <h1>
+                    Hanapin ang iyong
+                    <span>Susunod na Gawain.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Isang sentralisadong plataporma para sa paghahanap,
+                    pagtuklas, at pagbabahagi ng mga performance task
+                    sa Pag-aaral ng Kasaysayan sa Lipunang Pilipino.
+                </p>
+
+                <div class="search-container">
+                    <i data-lucide="search"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Maghanap ng performance task..."
+                    >
+                    <button id="searchBtn">Maghanap</button>
+                </div>
+
+                <div class="search-hint">
+                    <i data-lucide="lightbulb"></i>
+                    Subukan: Kasaysayan, Kultura, Lipunan
+                </div>
+
+            </div>
+
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+
+        </section>
+
+
+        <section class="subject-section" id="about">
+
+            <div class="subject-card">
+
+                <div class="subject-icon">
+                    <i data-lucide="landmark"></i>
+                </div>
+
+                <div class="subject-information">
+                    <span class="section-label">PANGUNAHING ASIGNATURA</span>
+
+                    <h2>PAG-AARAL NG KASAYSAYAN SA LIPUNANG PILIPINO</h2>
+
+                    <p>
+                        Lahat ng mga gawain, proyekto, at akademikong
+                        materyales ay nakatuon sa asignaturang ito.
+                    </p>
+                </div>
+
+                <div class="subject-decoration">
+                    <i data-lucide="book-open"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="statistics">
+
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i data-lucide="files"></i>
+                </div>
+                <div>
+                    <h3 id="taskCount">0</h3>
+                    <p>Mga Gawain</p>
+                </div>
+            </div>
+
+            <div class="stat-item">
+    <div class="stat-icon">
+        <i data-lucide="users"></i>
+    </div>
+    <div>
+        <h3 id="userCount">0</h3>
+        <p>Mga Miyembro</p>
+    </div>
+</div>
+
+<div class="stat-item">
+    <div class="stat-icon">
+        <i data-lucide="folder-open"></i>
+    </div>
+    <div>
+        <h3>01</h3>
+        <p>Asignatura</p>
+    </div>
+</div>
+
+        </section>
+
+
+        <section class="tasks-section" id="tasks">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">DISCOVER & EXPLORE</span>
+                    <h2>Mga Performance Task</h2>
+                    <p>Tuklasin ang mga available na akademikong gawain.</p>
+                </div>
+
+                <a href="#tasks" class="view-all">
+                    Tingnan lahat <i data-lucide="arrow-up-right"></i>
+                </a>
+            </div>
+
+
+            <div class="filter-container">
+
+                <button class="filter-btn active" data-filter="all">Lahat</button>
+                <button class="filter-btn" data-filter="essay">Sanaysay</button>
+                <button class="filter-btn" data-filter="research">Pananaliksik</button>
+                <button class="filter-btn" data-filter="project">Proyekto</button>
+                <button class="filter-btn" data-filter="presentation">Presentasyon</button>
+
+            </div>
+
+
+            <div class="task-grid" id="taskGrid">
+
+                <!-- Performance tasks will appear here using JavaScript -->
+
+            </div>
+
+            <div class="empty-state" id="emptyState">
+                <i data-lucide="search-x"></i>
+                <h3>Walang nahanap na gawain</h3>
+                <p>Subukan ang ibang salita o kategorya.</p>
+            </div>
+
+        </section>
+        
+
+        <section class="contribute-section">
+
+            <div class="contribute-content">
+                <span class="section-label">MAKIISA SA KOMUNIDAD</span>
+
+                <h2>Mayroon kang performance task?</h2>
+
+                <p>
+                    Tulungan ang ibang mag-aaral sa pamamagitan
+                    ng pagbabahagi ng iyong mga akademikong gawain.
+                </p>
+
+                <button class="contribute-btn" id="addTaskBtn">
+                    Magdagdag ng Performance Task
+                    <i data-lucide="plus"></i>
+                </button>
+            </div>
+
+            <div class="contribute-icon">
+                <i data-lucide="cloud-upload"></i>
+            </div>
+
+        </section>
+<div class="task-modal" id="addTaskModal" style="display:none;">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="closeAddModal">&times;</button>
+
+        <h2>Magdagdag ng Performance Task</h2>
+
+        <p class="modal-description">
+            Punan ang impormasyon ng bagong performance task.
+        </p>
+
+        <form id="addTaskForm">
+
+            <label>Pamagat ng Gawain</label>
+            <input type="text" id="newTitle" required placeholder="Ilagay ang pamagat">
+
+            <label>Kategorya</label>
+            <select id="newCategory" required>
+                <option value="essay">Sanaysay</option>
+                <option value="research">Pananaliksik</option>
+                <option value="project">Proyekto</option>
+                <option value="presentation">Presentasyon</option>
+            </select>
+
+            <label>Deskripsyon</label>
+            <textarea id="newDescription" required placeholder="Ilarawan ang gawain"></textarea>
+
+            <label>Mga Panuto</label>
+            <textarea id="newInstructions" required placeholder="Isulat ang mga panuto. Gumamit ng bagong linya sa bawat hakbang."></textarea>
+
+            <label>Petsa ng Pagsusumite</label>
+            <input type="date" id="newDeadline">
+
+            <button type="submit" class="register-btn submit-task">
+                I-save ang Performance Task
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="auth-modal" id="loginModal">
+    <div class="auth-box">
+        <button class="close-auth" id="closeLoginModal">&times;</button>
+
+        <h2>Mag-login</h2>
+        <p>Maligayang pagbabalik sa RVCR TASKFINDER!</p>
+
+        <form id="loginForm">
+            <input type="email" id="loginEmail"
+                placeholder="Email Address" required>
+
+            <input type="password" id="loginPassword"
+                placeholder="Password" required>
+
+            <button type="submit">Mag-login</button>
+        </form>
+    </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="auth-modal" id="registerModal">
+    <div class="auth-box">
+        <button class="close-auth" id="closeRegisterModal">&times;</button>
+
+        <h2>Gumawa ng Account</h2>
+        <p>Sumali sa RVCR TASKFINDER!</p>
+
+        <form id="registerForm">
+            <input type="text" id="registerName"
+                placeholder="Buong Pangalan" required>
+
+                <select id="registerRole" required>
+                    <option value="" disabled selected>Pumili ng Account Type</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+
+            <input type="email" id="registerEmail"
+                placeholder="Email Address" required>
+
+            <input type="password" id="registerPassword"
+                placeholder="Password" required>
+
+            <input type="password" id="confirmPassword"
+                placeholder="Ulitin ang Password" required>
+
+            <button type="submit">Mag-register</button>
+        </form>
+    </div>
+</div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <a href="#" class="logo footer-logo">
+                <div class="logo-icon">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+                <span>RVCR<span class="logo-highlight">TASKFINDER</span></span>
+            </a>
+
+            <p>
+                Isang digital na aklatan para sa mga mag-aaral.
+            </p>
+
+            <span class="copyright">
+                © 2026 RVCR TASKFINDER. All Rights Reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+   <script type="module">
+
+    // 1. IMPORT FIREBASE
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+    import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    serverTimestamp,
+    runTransaction,
+    onSnapshot,
+    collection,
+    addDoc,
+    deleteDoc
+} from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+    // 2. FIREBASE CONFIGURATION
+    const firebaseConfig = {
+        apiKey: "AIzaSyDAUwz7jBjhVEylrngXbmtl2X4dc5XWufY",
+        authDomain: "rvcr-taskfinder.firebaseapp.com",
+        projectId: "rvcr-taskfinder",
+        storageBucket: "rvcr-taskfinder.firebasestorage.app",
+        messagingSenderId: "1020565786539",
+        appId: "1:1020565786539:web:323d92fac9b38b33c38cee",
+        measurementId: "G-PGX98RMLRM"
+    };
+
+
+    // 3. INITIALIZE FIREBASE
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    const db = getFirestore(app);
+
+    window.taskfinderFirestore = {
+    db,
+    doc,
+    collection,
+    addDoc,
+    deleteDoc,
+    onSnapshot,
+    serverTimestamp
+};
+
+window.dispatchEvent(new Event("taskfinder-firestore-ready"));
+
+    // DISPLAY TOTAL MEMBERS
+const userCount = document.getElementById("userCount");
+
+const statsRef = doc(db, "stats", "public");
+
+onSnapshot(statsRef, (snapshot) => {
+    console.log("Stats Snapshot:", snapshot.data());
+
+    if (snapshot.exists()) {
+        const total = snapshot.data()["total of members"];
+        console.log("Total Members:", total);
+
+        userCount.textContent = total;
+    } else {
+        console.error("Stats document does not exist!");
+    }
+}, (error) => {
+    console.error("Member Count Error:", error);
+});
+
+    // REGISTER ACCOUNT
+let isRegistering = false;
+
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("registerName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const role = document.getElementById("registerRole").value;
+    const password = document.getElementById("registerPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        alert("Hindi magkapareho ang mga password!");
+        return;
+    }
+
+    isRegistering = true;
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        const user = userCredential.user;
+
+        await updateProfile(user, {
+            displayName: name
+        });
+
+        await runTransaction(db, async (transaction) => {
+
+            const statsRef = doc(db, "stats", "public");
+            const memberRef = doc(db, "members", user.uid);
+
+            const statsSnap = await transaction.get(statsRef);
+
+            if (!statsSnap.exists()) {
+                throw new Error("Hindi makita ang statistics document.");
+            }
+
+            const currentCount = statsSnap.data()["total of members"];
+
+            transaction.set(memberRef, {
+                name: name,
+                email: email,
+                role: role,
+                status: role === "teacher" ? "pending" : "approved",
+                createdAt: serverTimestamp()
+            });
+
+            transaction.update(statsRef, {
+                "total of members": currentCount + 1
+            });
+
+        });
+
+        alert("Matagumpay na nairehistro ang iyong account!");
+
+        registerForm.reset();
+        document.getElementById("registerModal").style.display = "none";
+
+    } catch (error) {
+        console.error("Registration Error:", error);
+        alert("Registration Error: " + error.message);
+
+    } finally {
+        isRegistering = false;
+    }
+
+});
+
+// LOGIN ACCOUNT
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+
+        alert("Matagumpay kang naka-login!");
+
+        loginForm.reset();
+        document.getElementById("loginModal").style.display = "none";
+
+    } catch (error) {
+        alert("Login Error: " + error.message);
+    }
+});
+
+// LOGOUT ACCOUNT
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", async () => {
+    try {
+        await signOut(auth);
+        alert("Matagumpay kang naka-logout!");
+    } catch (error) {
+        alert("Logout Error: " + error.message);
+    }
+});
+
+// WELCOME SCREEN BUTTONS
+
+const welcomeScreen = document.getElementById("welcomeScreen");
+
+document.getElementById("welcomeLoginBtn").addEventListener("click", () => {
+    document.getElementById("loginModal").style.display = "flex";
+});
+
+document.getElementById("welcomeRegisterBtn").addEventListener("click", () => {
+    document.getElementById("registerModal").style.display = "flex";
+});
+
+
+
+// CHECK USER LOGIN AND ROLE
+
+onAuthStateChanged(auth, async (user) => {
+
+    console.log("AUTH CHECK:", user ? user.email : "NO USER");
+
+    while (isRegistering) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+}
+
+    if (!user) {
+    welcomeScreen.style.display = "flex";
+    document.getElementById("addTaskBtn").style.display = "none";
+
+    document.getElementById("loginBtn").style.display = "inline-block";
+    document.getElementById("registerBtn").style.display = "inline-block";
+    document.getElementById("logoutBtn").style.display = "none";
+
+    return;
+}
+
+    try {
+        const memberRef = doc(db, "members", user.uid);
+        const memberSnap = await getDoc(memberRef);
+
+        if (!memberSnap.exists()) {
+            alert("Hindi makita ang iyong account information.");
+            await signOut(auth);
+            return;
+        }
+
+        const memberData = memberSnap.data();
+
+        window.taskfinderUserName = memberData.name;
+
+        console.log("USER ROLE:", memberData.role);
+        console.log("USER STATUS:", memberData.status);
+
+        window.taskfinderUserRole = memberData.role;
+window.taskfinderUserStatus = memberData.status;
+
+window.dispatchEvent(new CustomEvent("taskfinder-role-ready", {
+    detail: {
+        role: memberData.role,
+        status: memberData.status
+    }
+}));
+
+        document.getElementById("addTaskBtn").style.display =
+    (memberData.role === "admin" ||
+     memberData.role === "teacher" && memberData.status === "approved")
+        ? "inline-block"
+        : "none";
+
+        if (memberData.role === "teacher" && memberData.status !== "approved") {
+            alert("Pending Approval! Hintayin munang aprubahan ng Admin ang iyong Teacher account.");
+            await signOut(auth);
+            return;
+        }
+
+        welcomeScreen.style.display = "none";
+
+        document.getElementById("loginBtn").style.display = "none";
+document.getElementById("registerBtn").style.display = "none";
+document.getElementById("logoutBtn").style.display = "inline-block";
+
+    } catch (error) {
+        console.error("Authentication Error:", error);
+        alert("May problema sa pag-check ng iyong account.");
+    }
+
+});
+
+    // 4. TEST CONNECTION
+    console.log("Firebase Connected!");
+
+</script>
+
+    <script src="script.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html
